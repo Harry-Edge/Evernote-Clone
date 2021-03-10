@@ -63,7 +63,7 @@ class Login extends Component {
             <Typography className={classes.title} component="h2" variant="h3">
                Evernote Clone
             </Typography>
-            <form className={classes.form} onSubmit={(e) => this.props.onLogin(e, this.state)} noValidate>
+            <form className={classes.form} noValidate>
               <TextField
                 variant="outlined"
                 margin="normal"
@@ -103,7 +103,7 @@ class Login extends Component {
               </Button>
               <Grid container>
                 <Grid item>
-                  <Link className={classes.signUp} variant="body2">
+                  <Link onClick={() => {this.props.onSignUp()}} className={classes.signUp} variant="body2">
                     {"Don't have an account?"}
                   </Link>
                 </Grid>

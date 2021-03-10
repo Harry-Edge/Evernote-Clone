@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Login from './components/Login/Login'
 import NotesApp from "./components/NotesApp";
+import SignUp from "./components/Login/SignUp";
 
 class App extends Component {
 
     state = {
-      loggedIn: localStorage.getItem('token') ? true : false
+      loggedIn: localStorage.getItem('token') ? true : false,
+      signUp: false
     }
 
   handleLogin = (e, data) => {
@@ -26,6 +28,9 @@ class App extends Component {
         });
       });
   };
+  handleSignUpOrLoginClicked = () => {
+      this.setState({signUp: !this.state.signUp})
+  }
 
   handleLogout = () => {
     localStorage.removeItem('token');
@@ -41,9 +46,13 @@ class App extends Component {
                       <NotesApp onLogout={this.handleLogout}/>
                   </div>
                   :
-                  <div>
-                      <Login onLogin={this.handleLogin}/>
-                  </div>
+                  this.state.signUp ?
+                    <div>
+                      <SignUp onLogin={this.handleSignUpOrLoginClicked}/>
+                    </div>
+                  : <div>
+                      <Login onSignUp={this.handleSignUpOrLoginClicked} onLogin={this.handleLogin}/>
+                    </div>
           }
       </div>
     );
