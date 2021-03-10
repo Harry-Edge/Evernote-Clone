@@ -11,24 +11,37 @@ import Container from '@material-ui/core/Container';
 
 const styles = (theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(23),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
+  title:  {
+    fontWeight: 650
+  },
+
   avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    margin: theme.spacing(3),
+    backgroundColor: 'green',
   },
   form: {
     width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(2),
   },
-  submit: {
+  signUp: {
+    fontWeight: 600
+  },
+  signInButton: {
     margin: theme.spacing(3, 0, 2),
+    color: 'white',
+    borderBottom: '1px solid black',
+    backgroundColor: '#008000',
+       fontWeight: 550,
+        '&:hover': {
+            backgroundColor: '#009900'
+        }
   },
 });
-
 
 class Login extends Component {
 
@@ -47,8 +60,8 @@ class Login extends Component {
             <Avatar className={classes.avatar}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
-               Login
+            <Typography className={classes.title} component="h2" variant="h3">
+               Evernote Clone
             </Typography>
             <form className={classes.form} onSubmit={(e) => this.props.onLogin(e, this.state)} noValidate>
               <TextField
@@ -83,20 +96,15 @@ class Login extends Component {
                 type="submit"
                 fullWidth
                 variant="contained"
-                color="primary"
-                className={classes.submit}
+                color="#1B5E20"
+                className={classes.signInButton}
               >
                 Sign In
               </Button>
               <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
+                  <Link className={classes.signUp} variant="body2">
+                    {"Don't have an account?"}
                   </Link>
                 </Grid>
               </Grid>
