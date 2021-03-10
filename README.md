@@ -10,5 +10,5 @@ A user can search through the notes they have created. The app will also remembe
 Build with Python, Javascript, React, Django, Django REST framework, HTML, CSS, Material-UI.
 
 ## Main UI
-![](/sampleimages/Dashboard.jpeg?raw=true "Dashboard")
+![](/sampleimages/dashboard.jpeg?raw=true "Dashboard")
 
