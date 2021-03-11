@@ -28,6 +28,14 @@ class App extends Component {
         });
       });
   };
+
+  handleSignUp = (e, data) => {
+
+      // Only printing at the moment, needs finishing
+      e.preventDefault();
+      console.log(data)
+  }
+
   handleSignUpOrLoginClicked = () => {
       this.setState({signUp: !this.state.signUp})
   }
@@ -48,10 +56,10 @@ class App extends Component {
                   :
                   this.state.signUp ?
                     <div>
-                      <SignUp onLogin={this.handleSignUpOrLoginClicked}/>
+                      <SignUp onLoginClicked={this.handleSignUpOrLoginClicked} onSignup={this.handleSignUp}/>
                     </div>
                   : <div>
-                      <Login onSignUp={this.handleSignUpOrLoginClicked} onLogin={this.handleLogin}/>
+                      <Login onSignUpClicked={this.handleSignUpOrLoginClicked} onLogin={this.handleLogin}/>
                     </div>
           }
       </div>

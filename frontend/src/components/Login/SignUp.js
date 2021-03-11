@@ -42,6 +42,8 @@ const styles = (theme) => ({
 class SignUp extends Component {
 
     state = {
+      firstName: '',
+      secondName: '',
       email: '',
       password: ''
     };
@@ -56,7 +58,7 @@ class SignUp extends Component {
             <Typography className={classes.title} component="h2" variant="h4">
                SignUp
             </Typography>
-            <form className={classes.form} noValidate>
+            <form className={classes.form} noValidate onSubmit={(e) => this.props.onSignup(e, this.state)}>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -68,6 +70,9 @@ class SignUp extends Component {
                     id="firstName"
                     label="First Name"
                     autoFocus
+                    onChange={(e) =>{
+                        this.setState({firstName: e.target.value})
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -79,6 +84,9 @@ class SignUp extends Component {
                     label="Last Name"
                     name="lastName"
                     autoComplete="lname"
+                    onChange={(e) =>{
+                        this.setState({secondName: e.target.value})
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -90,6 +98,9 @@ class SignUp extends Component {
                     label="Email Address"
                     name="email"
                     autoComplete="email"
+                    onChange={(e) =>{
+                        this.setState({email: e.target.value})
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -102,6 +113,9 @@ class SignUp extends Component {
                     type="password"
                     id="password"
                     autoComplete="current-password"
+                    onChange={(e) =>{
+                        this.setState({password: e.target.value})
+                    }}
                   />
                 </Grid>
             </Grid>
@@ -109,14 +123,13 @@ class SignUp extends Component {
                 type="submit"
                 fullWidth
                 variant="contained"
-                color="#1B5E20"
                 className={classes.signUpButton}
               >
                 Sign Up
               </Button>
               <Grid container justify='flex-end'>
                 <Grid item>
-                  <Link className={classes.signUp} onClick={() => this.props.onLogin()} variant="body2">
+                  <Link className={classes.signUp} onClick={() => this.props.onLoginClicked()} variant="body2">
                     {"Already have an Account? Login"}
                   </Link>
                 </Grid>

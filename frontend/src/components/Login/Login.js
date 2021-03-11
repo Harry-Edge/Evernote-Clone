@@ -63,7 +63,7 @@ class Login extends Component {
             <Typography className={classes.title} component="h2" variant="h3">
                Evernote Clone
             </Typography>
-            <form className={classes.form} noValidate>
+            <form className={classes.form} onSubmit={(e) => this.props.onLogin(e, this.state)} noValidate>
               <TextField
                 variant="outlined"
                 margin="normal"
@@ -96,14 +96,13 @@ class Login extends Component {
                 type="submit"
                 fullWidth
                 variant="contained"
-                color="#1B5E20"
                 className={classes.signInButton}
               >
                 Sign In
               </Button>
               <Grid container>
                 <Grid item>
-                  <Link onClick={() => {this.props.onSignUp()}} className={classes.signUp} variant="body2">
+                  <Link onClick={() => {this.props.onSignUpClicked()}} className={classes.signUp} variant="body2">
                     {"Don't have an account?"}
                   </Link>
                 </Grid>
